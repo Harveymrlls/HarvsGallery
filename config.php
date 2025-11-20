@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$dbname = 'gallery_db';
-$username = 'root';  // Change to your MySQL username
-$password = '';      // Change to your MySQL password
+$host = 'sql100.infinityfree.com';
+$dbname = 'if0_40396748_gallery_db';
+$username = 'if0_40396748';  // Change to your MySQL username
+$password = 'harveY2578';      // Change to your MySQL password
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
