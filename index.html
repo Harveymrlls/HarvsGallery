@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HarvsGallery Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="py-20 bg-purple-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white w-full max-w-md p-8 rounded-2xl shadow-lg">
+        
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">
+            Welcome to <span style="color: #62109F">HarvsGallery</span>
+        </h1>
+
+        <!-- Login Form -->
+        <div class="mb-10">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Login</h2>
+
+            <form method="POST" action="login.php" class="space-y-4">
+                <input 
+                    type="text" 
+                    name="username" 
+                    placeholder="Username"
+                    class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none"
+                    required
+                >
+                <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Password"
+                    class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-blue-500 outline-none"
+                    required
+                >
+                <button 
+                    type="submit" 
+                    name="action" 
+                    value="login"
+                    class="w-full hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition"
+                    style="background: #62109F;"
+                >
+                    Login
+                </button>
+            </form>
+        </div>
+
+        <!-- Divider -->
+        <div class="flex items-center gap-4 mb-8">
+            <div class="flex-grow h-px bg-gray-300"></div>
+            <span class="text-gray-500 text-sm">OR</span>
+            <div class="flex-grow h-px bg-gray-300"></div>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div>
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Create an Account</h2>
+
+            <form method="POST" action="login.php" class="space-y-4">
+                <input 
+                    type="text" 
+                    name="username" 
+                    placeholder="Username"
+                    class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-green-500 outline-none"
+                    required
+                >
+                <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Password"
+                    class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-green-500 outline-none"
+                    required
+                >
+                <button 
+                    type="submit" 
+                    name="action" 
+                    value="signup"
+                    class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition"
+                >
+                    Sign Up
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
