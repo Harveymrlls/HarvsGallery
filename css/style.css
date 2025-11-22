@@ -34,12 +34,12 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    padding-bottom: 15px;
+    padding-bottom: 0px;
     border-bottom: 1px solid #e0e0e0;
 }
 
 h1 {
-    color: #450693;
+    
     font-weight: 700;
 }
 
@@ -403,7 +403,7 @@ h1 {
 
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 0px;
     }
     
     header {
@@ -420,4 +420,8 @@ h1 {
     .upload-form {
         gap: 12px;
     }
+}
+
+#menu-toggle:checked ~ #menu {
+max-height: 100vh;
 }

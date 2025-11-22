@@ -316,5 +316,19 @@ function showNotification(message, type) {
     }, 5000);
 }
 
+// Mobile menu toggle functionality
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+menuToggle.addEventListener('change', function() {
+    if (this.checked) {
+        menu.classList.remove('hidden');
+        menu.style.maxHeight = '100vh';
+    } else {
+        menu.classList.add('hidden');
+        menu.style.maxHeight = '0';
+    }
+});
+
 // Initial load
 loadGallery();

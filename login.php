@@ -15,7 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (empty($username) || empty($password)) {
                 $message = "Username and password are required.";
                 $message_type = "error";
-            } else {
+            } elseif (strlen($username) < 4) {
+                $message = "Username must be at least 4 characters long.";
+                $message_type = "error";
+            }elseif (strlen($password) < 8){
+                $message = "Password must be at least 8 characters long";
+                $message_type = "error";
+            }elseif (!preg_match('/[A-Z]/', $password)){
+                $message = "Password must contain at least 1 uppercase letter.";
+                $message_type = "error";
+            }elseif (!preg_match('/[0-9]/', $password)){
+                $message = "password must contain at least 1 number.";
+                $message_type = "error";
+            }else {
                 // Check if username already exists
                 $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
                 $stmt->execute([$username]);
@@ -115,7 +127,7 @@ function displayLoginPage($message = '', $message_type = '') {
                     </button>
                     <?php if ($message && $_POST['action'] == 'login'): ?>
                     <div class="message <?php echo $message_type; ?>"><?php echo htmlspecialchars($message); ?></div>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </form>
             </div>
 
@@ -135,6 +147,7 @@ function displayLoginPage($message = '', $message_type = '') {
                         type="text" 
                         name="username" 
                         placeholder="Username"
+                        minlength = "4"
                         class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-green-500 outline-none"
                         required
                     >
@@ -142,6 +155,9 @@ function displayLoginPage($message = '', $message_type = '') {
                         type="password" 
                         name="password" 
                         placeholder="Password"
+                        minlength = "8"
+                        patter = "^(?=.*[A-Z])(?=.[0-9]).{8,}$"
+                        tilte = "password must be at least 8 characters, include UPPERCASE letter and one number"
                         class="w-full px-4 py-3 rounded-lg border focus:ring-2 focus:ring-green-500 outline-none"
                         required
                     >
